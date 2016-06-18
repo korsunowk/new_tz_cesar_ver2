@@ -1,0 +1,53 @@
+body{
+    background-color: mintcream;
+    width: 1000px;
+	height: 750px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+textarea{
+    width: 350px;
+    font-size: 20px;
+    height: 100px;
+}
+
+.main{
+    margin-top: 40px;
+}
+.rot_inp{
+    width:30px;
+}
+.rot{
+    font-size: 20px;
+    margin-left: 25px;
+}
+td{
+    padding:25px;
+}
+.but{
+    width:130px;
+}
+
+#placeholder{
+    height: 170px;
+    width: 970px;
+}
+.demo-container{
+    height: 200px;
+    width: 1000px;
+    margin-left:-50px;
+    margin-top: -30px;
+}
+
+.to_guess{
+    padding: 15px;
+    width : 500px;
+    height: 70px;
+    background-color: #eeeeee;
+    margin: 0 auto;
+    margin-top: -30px;
+    font-size: 25px;
+    font-style: oblique;
+    text-align: center;
+}

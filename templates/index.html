@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Шифр Цезаря</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css'%}">
+    <link href="{% static 'css/examples.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.css'%}">
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jq.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.min.js '%}"></script>
+    <script language="javascript" type="text/javascript" src="{% static 'js/jquery.flot.categories.js'%}"></script>
+</head>
+<body>
+    <div class="legend">
+        <h2>Шифрование/расшифрование текста по схеме шифра Цезаря</h2>
+        <hr>
+    </div>
+    <div class="main">
+        <table>
+
+            {% csrf_token %}
+            <tr>
+                <td>
+                    {{ form.text }}
+                </td>
+                <td>
+                    <text class="rot">ROT</text>{{ form.key }}
+                    <button href="#" id="enc" class="btn btn-success but">Зашифровать</button>
+                    <button href="#" id="dec" class="btn btn-info but">Расшифровать</button>
+                </td>
+                <td>
+                    <textarea id="text2" rows="16"  cols="100" readonly>
+
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div id="content">
+                        <div class="demo-container">
+                            <div id="placeholder" class="demo-placeholder"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="to_guess">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
