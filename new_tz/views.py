@@ -79,14 +79,30 @@ def index(request):
 @csrf_exempt
 def encrypt(request):                   #шифрование
     if request.method == 'POST':
-        return JsonResponse({'finaltext': encrypting(request.POST.get('text',''),int(request.POST.get('key','')))})
+        return JsonResponse(
+            {
+                'finaltext': encrypting
+                (
+                    request.POST.get('text',''),
+                    int(request.POST.get('key',''))
+                )
+            }
+        )
     else:
         return redirect('/')
 
 @csrf_exempt
 def decrypt(request):                   #дешифратор
     if request.method == 'POST':
-        return JsonResponse({'finaltext': decrypting(request.POST.get('text',''),int(request.POST.get('key','')))})
+        return JsonResponse(
+            {
+                'finaltext': decrypting
+                (
+                    request.POST.get('text',''),
+                    int(request.POST.get('key',''))
+                )
+            }
+        )
     else:
         return redirect('/')
 
@@ -95,10 +111,20 @@ def find(request):                      #поиск введенного тек�
     if request.method == 'POST':
         mytext = request.POST.get('mytext','')
         if find_text(mytext):                   #проверка на незашифрованный текст
-            return JsonResponse({'enc':'false'})
+            return JsonResponse(
+                {
+                    'enc':'false'
+                }
+            )
         for i in range(1,27):                   #поиск зашифрованного текта
             if find_text(decrypting(mytext,i)):
-                return JsonResponse({'enc':'true','word':decrypting(mytext,i),'key':i})
+                return JsonResponse(
+                    {
+                        'enc':'true',
+                        'word':decrypting(mytext,i),
+                        'key':i
+                    }
+                )
         return JsonResponse({'enc':'dont_know'})
     else:
         return redirect('/')
