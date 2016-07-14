@@ -9,7 +9,7 @@ def encrypting(normaltext, key):
     it=0
     for i in normaltext.lower():
         try:
-            int(i)            #проверка символа на число
+            int(i)            #проверка символа на int
             cesartext += i
         except:
             if i == ' ':            #проверка на пробел в тексте
