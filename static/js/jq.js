@@ -14,13 +14,34 @@ $(document).ready(function(){
 		  }
 	 return cookieValue;
 	}
-
+    
 	var csrftoken = getCookie('csrftoken');
 
+    function validate() {
+        var a = true;
+        if ($('#text1').val() == '' ) {
+            $('#text1').css('border-color', 'red');
+            $('#text1').css('border-width', '3px');
+            a = false
+        }
+        if ($('#key').val() == '') {
+            $('#key').css('border-color', 'red');
+            $('#key').css('border-width', '3px');
+            a = false
+        }
+        return a
+    }
+    
+    function clear_validation() {
+        $('#text1').css({'border-color': '#CCCCCC', 'border-width': '1px'});
+        $('#key').css({'border-color': '#CCCCCC', 'border-width': '1px'});
+    }
+    
 	$('#enc').click(encrypt);
 	function encrypt() {
-
-        $.ajax({
+	    if (validate() == true){
+	        clear_validation();
+	        $.ajax({
             type: "POST",
             url: "/encrypt/",
             data: {
@@ -34,6 +55,7 @@ $(document).ready(function(){
                     $("#text2").val(result['finaltext']);
 				}
 		   });
+        }
 
     }
 

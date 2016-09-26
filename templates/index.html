@@ -23,21 +23,18 @@
     </div>
     <div class="main">
         <table>
-
-            {% csrf_token %}
-            <tr>
+                <tr>
+                    <td>
+                        <textarea id="text1" rows="16" name="text" cols="100" placeholder="Введите текст" required></textarea>
+                    </td>
+                    <td>
+                        <text class="rot">ROT</text>
+                        <input type="number" name="key" id="key" class="rot_inp" min="0" max="25" required>
+                        <button href="#" id="enc" class="btn btn-success but">Зашифровать</button>
+                        <button href="#" id="dec" class="btn btn-info but">Расшифровать</button>
+                    </td>
                 <td>
-                    {{ form.text }}
-                </td>
-                <td>
-                    <text class="rot">ROT</text>{{ form.key }}
-                    <button href="#" id="enc" class="btn btn-success but">Зашифровать</button>
-                    <button href="#" id="dec" class="btn btn-info but">Расшифровать</button>
-                </td>
-                <td>
-                    <textarea id="text2" rows="16"  cols="100" readonly>
-
-                    </textarea>
+                    <textarea id="text2" rows="16"  cols="100" readonly></textarea>
                 </td>
             </tr>
             <tr>
