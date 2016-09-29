@@ -61,19 +61,22 @@ $(document).ready(function(){
 
 	$('#dec').click(decrypt);
 	function decrypt() {
-        $.ajax({
-        type: "POST",
-        url: "/decrypt/",
-        data:{
-            "csrfmiddlewaretoken" : csrftoken,
-            "text": $("#text1").val(),
-            "key": $("#key").val()
-        },
-        dataType: "json",
-        cache: false,
-        success: function(result){
-            $("#text2").val(result['finaltext']);
-        }});
+	    if (validate() == true){
+	        clear_validation();
+            $.ajax({
+            type: "POST",
+            url: "/decrypt/",
+            data:{
+                "csrfmiddlewaretoken" : csrftoken,
+                "text": $("#text1").val(),
+                "key": $("#key").val()
+            },
+            dataType: "json",
+            cache: false,
+            success: function(result){
+                $("#text2").val(result['finaltext']);
+            }});
+	    }
     }
 
     $('#text1').change(function() {
