@@ -24,7 +24,7 @@ $(document).ready(function(){
             $('#text1').css('border-width', '3px');
             a = false
         }
-        if ($('#key').val() == '') {
+        if ($('#key').val() == '' || $('#key').val() < 0 || $('#key').val() > 25){
             $('#key').css('border-color', 'red');
             $('#key').css('border-width', '3px');
             a = false
