@@ -1,5 +1,4 @@
 from django.shortcuts import redirect
-from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from CesarCrypt.CesarCrypting import CesarCrypting
 from django.views.generic import View
@@ -54,4 +53,4 @@ class CesarCryptingView(View):
                         )
                 return JsonResponse({'enc': 'dont_know'})
         else:
-            redirect('/')
+            return redirect('/')
